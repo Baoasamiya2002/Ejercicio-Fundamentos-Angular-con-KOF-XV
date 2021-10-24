@@ -1,0 +1,31 @@
+<h1><img class="logo" src="https://sm.ign.com/t/ign_it/screenshot/default/kof-xv-logo-1606496500349_vkas.1200.jpg" alt="KOF XV">
+</h1>
+<h2>¡Haz tu tercia!</h2>
+<progress [max]="3" [value]="numIntegrantes"></progress>
+<div class="flexWrap">
+  <div class="flexWrapSon">
+    <div class="box">
+      <div *ngFor="let personaje of personajes">
+        <p>{{ personaje.nombre }}</p>
+        <img [src]="personaje.rutaImagen">
+        <button [disabled]="btnDisabled" (click)="agregarIntegrante(personaje.nombre)">Agregar</button>
+      </div>
+    </div>
+    <div class="characterSelecter">
+      <table>
+        <tr *ngFor="let integrante of equipo; index as i">
+          <th>
+            <p>{{ integrante }}</p>
+            <button (click)="eliminarIntegrante(i)">Eliminar</button>
+          </th>
+        </tr>
+        <tr *ngFor="let incognita of sinElegir; index as i">
+          <th>
+            <p>{{ incognita }}</p>
+          </th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<h3>Hecho el 23/10/21, los personajes e imágenes son propiedad de SNK</h3>
